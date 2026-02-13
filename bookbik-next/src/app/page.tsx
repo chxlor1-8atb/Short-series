@@ -20,6 +20,7 @@ export default function Home() {
                   <a className="text-primary font-medium text-sm" href="#">หน้าแรก</a>
                   <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ยอดนิยม</a>
                   <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ต้นฉบับ</a>
+                  <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="/missions">ภารกิจ</a>
                   <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">รายการของฉัน</a>
                 </div>
               </div>
