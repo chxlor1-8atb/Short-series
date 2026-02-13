@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>บุ๊คบิ๊ก - แพลตฟอร์มซีรีส์สั้น</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans Thai", "Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal sections */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background: rgba(16, 25, 34, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white transition-colors duration-300">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/10 dark:border-white/5 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<!-- Logo & Links -->
+<div class="flex items-center gap-8">
+<div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+<div class="w-8 h-8 rounded bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-lg">B</div>
+<span class="font-bold text-xl tracking-tight dark:text-white">Book<span class="text-primary">bik</span></span>
+</div>
+<div class="hidden md:block">
+<div class="flex items-baseline space-x-6">
+<a class="text-primary font-medium text-sm" href="#">หน้าแรก</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ยอดนิยม</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ต้นฉบับ</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="library.html">รายการของฉัน</a>
+</div>
+</div>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<!-- Search -->
+<div class="relative hidden sm:block group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-icons text-xl">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-full leading-5 bg-white dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all duration-300 w-64" placeholder="ค้นหาเรื่อง, ประเภท..." type="text"/>
+</div>
+<!-- Theme Toggle Placeholder (Visual Only) -->
+<button class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+<span class="material-icons">dark_mode</span>
+</button>
+<!-- Profile -->
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-transparent hover:ring-primary transition-all cursor-pointer">
+<img alt="User Profile Avatar" class="h-full w-full object-cover" data-alt="User profile avatar showing a smiling person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdNMesUNThpjqYDd7zJFu7zUAtkFrc8zmXcPJdpxMOYbic-vYelkTDNuOsX_GH95d97FYiiIN39evFtQf5JMzPaHJ2KLBE_h0noOg7-On_fHiBDy2ElySmurmycFlhXUHTegGQARUUpzoQjhQwzDi5CuBEv29_hyYkV4sO7tHK5ueQItinU7D5DGaxpS2fAl0hSakxP8_ygmXKXmR61ADk4T6cnfWXKQZh7gMVzuDHNBeF1tG9nebwunnaGgHLL9smbP-hZD_lKmOA"/>
+</div>
+<a href="topup.html" class="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-all flex-shrink-0">
+<span class="material-icons">monetization_on</span>
+<span class="hidden sm:inline">เติมเหรียญ</span>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="relative">
+<!-- Hero Section -->
+<div class="relative w-full h-[85vh] sm:h-[70vh] flex items-end">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full overflow-hidden">
+<img alt="Cinematic Hero Background" class="w-full h-full object-cover object-center scale-105" data-alt="Cinematic dark moody scene with neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXNHR85-g2l1L0Q1hfxM_QvIs4zPAnbyB3wpuahptPZAt-our6aAtrPY3o_CouiNUEmpieu5GgYF0j0SUvN7eoRxdERe7GiK9ViWNIwwQBoAPIzy5MBH6PeMyp207dgzZdEnlGT-EfYQnoGmYqcQ3W1azQ_k9l2CiGz3FqIUSJeYNFeHggdYcxk3arooWjO3jj8b8tkx1nOwylViqiOYxpCzUuf4htrLsNhSd3Liy06dfK4tn6JODnwqO115ZnXWRS4A-4wtHNjPLS"/>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light/20 dark:via-background-dark/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-light dark:from-background-dark via-background-light/40 dark:via-background-dark/80 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+<div class="max-w-2xl space-y-6">
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20 backdrop-blur-sm">ซีรีส์ใหม่</span>
+<span class="text-slate-600 dark:text-slate-300 text-sm font-medium flex items-center gap-1">
+<span class="material-icons text-primary text-base">star</span> คะแนน 4.9
+                         </span>
+</div>
+<h1 class="text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-tight text-slate-900 dark:text-white drop-shadow-sm">
+                        Midnight <span class="text-primary">Echoes</span>
+</h1>
+<div class="flex items-center gap-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium">
+<span>2023</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>ไซไฟระทึกขวัญ</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>1 ฤดูกาล</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span class="px-2 py-0.5 border border-slate-300 dark:border-slate-600 rounded text-xs">4K</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-lg line-clamp-3 md:line-clamp-none max-w-xl">
+                        เมื่อสัญญาณลึกลับรบกวนระบบไฟฟ้าทั่วโลก กลุ่มพี่น้องที่ห่างเหินกันต้องมารวมตัวกันอีกครั้งเพื่อเปิดโปงความจริงที่ฝังอยู่ในมรดกของพ่อ ก่อนที่ความเงียบจะมาถึงตลอดกาล
+                    </p>
+<div class="flex items-center gap-4 pt-4">
+<button class="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-8 py-3.5 rounded-lg font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/25">
+<span class="material-icons">play_arrow</span>
+                            ดูเลย
+                        </button>
+<button class="flex items-center gap-2 bg-white/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700 text-slate-900 dark:text-white backdrop-blur-md px-6 py-3.5 rounded-lg font-semibold transition-all border border-slate-200 dark:border-slate-600">
+<span class="material-icons">add</span>
+                            เพิ่มในรายการ
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="relative z-20 -mt-8 pb-20 space-y-12 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Continue Watching (Horizontal Cards) -->
+<section>
+<div class="flex items-center justify-between mb-4 px-2">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">ดูต่อ</h2>
+<div class="flex gap-2">
+<button class="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors"><span class="material-icons">chevron_left</span></button>
+<button class="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors"><span class="material-icons">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Item 1 -->
+<div class="group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:shadow-none transition-all">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Still frame from a sci-fi movie scene" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUuhgBsiQo8SNdXLGB-JC37joQYMv-XOQxweEJJRd-o3VVSr49793xaeYqLACSGM5CMBFFqzeXy3UJEO2Kyj36l12OUJo_Sg5Kibsp4uinYA3SQgHQlc3WiGYfmSVfySR_pdKZoThPHs0hcWGPmI-UFeSFvAkh7uYS9EF4yp-qI_3TFusRjdY0Ne23Zxzs5XLwOypbmm4HxB6EYoRyOkdTc4SJ2awBMXd3Vt_fOYcWkiyT2kXUO9ap-fj6UINUVHmK4mRrqgaZGEBx"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+<!-- Progress Bar -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-slate-700">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-slate-900 dark:text-white truncate">คืนหมอย: ตอนที่ 4</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">เหลืออีก 24 นาที</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:shadow-none transition-all">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Dramatic scene from a black and white film" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdBnKZiOqkXsjWHvOA1TUR9piryYn0OB2Fda2NiVpeAsrUV0hSYnrAl4Sh1Le39Tl12BMSgADUpvqtmO8Q43cfffI5dHyIMSPUkrThGdIS2PDGZxIkswYg75YLCzhAl-XimUDRHM_NNlQZHrpretwy5ZkQP_pn7L1-TIXXxY7M9wOEQpRuHMFpIpEAM1FyIWJZyW6PLToTv2EoZvIMC-Iqm2K7fkRtYg1ao0ZSOx6Fot97koh0yrkOtwmVabGHjxBZC1_lndjBtp1g"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+<!-- Progress Bar -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-slate-700">
+<div class="h-full bg-primary w-1/4"></div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-slate-900 dark:text-white truncate">สถาปนิก</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">เหลืออีก 45 นาที</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:shadow-none transition-all hidden lg:block">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Forest landscape with foggy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxXRVoWYMZ55SPLtL2B0flfoS16J0OoCEzvR8pgtcorJoLiKSPqPXy6ZTPR3yKawu-_7Z9GswsEuMv-ppI_GKK_0f-KJtb1cYEKw1xKEL7jBOcl8fK7u6hS7owst4GOhRHs2F19vMGZvOWZjked7DIufCyKFbVxQJQ--8RuYgPo1xFMzqFOqzj6_KS_E9cNL8a2rE7yRVQhm0O24P6xnc-LyA4WlZZv5wp0CTBafyH0rQSBBd6zwK-lOcH9P7W-3Uq3BVRMbHsai3X"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+<!-- Progress Bar -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-slate-700">
+<div class="h-full bg-primary w-[90%]"></div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-slate-900 dark:text-white truncate">หลงในป่าสน</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">เหลืออีก 3 นาที</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group relative bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:shadow-none transition-all hidden lg:block">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Abstract colorful light painting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mry4lmAa76uixPamAqm5YI471ne2NwtFDsoa0Uizw5P8jY7ln76wbQRPxpUMvpIl8kQhDYAvhNOrSvMeeEJI7LoQAsOebsZjSIvWRiUqcaK71JTMraxyCngCgrh-aE4YwlhD_WLa8EdAZdFxcQeoEV-0YliOAAMX90J8mnuMy5U0pKl92qTmdYIGphPhOZEt_WwDLDONNYZgP-a3cVTFA2vHV_6buAEWOuJoIK9F1DWWLD5BZagJny8eiqyuQ-VRehtuchHnAAwm"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+<!-- Progress Bar -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-slate-700">
+<div class="h-full bg-primary w-1/2"></div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-slate-900 dark:text-white truncate">การเปลี่ยนสี</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">เหลืออีก 12 นาที</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Now (Vertical Posters) -->
+<section>
+<div class="flex items-center justify-between mb-4 px-2">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">กำลังมาแรง</h2>
+<a class="text-sm font-medium text-primary hover:text-blue-500 transition-colors" href="#">ดูทั้งหมด</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x snap-mandatory">
+<!-- Poster 1 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Movie poster with dark moody clouds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV03LqFCOPy7nWdCT95mEJDP76WIdiaj-s1c0p8Az6UmI7Bmb82b9-mcmBvzY3FSwZ5Zjw4EU5u2uNYqAKF4aC2BD3__yF-tsI04QgXhv-jCCfkS-ODi5cQYA662HhumABT9TWfcbIgqModTlaLN8MVNVZzNGqNU7x0IT4aGO46W8j9RPVuIY7diT-75Oi-dEIHP8blgB3itfR5x8ti1NX9tlpAKWaLV-YrBO5S8ZeWp33IExQrAjZon_xMDuhuvvR3yhDqBRmEPUT"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-1.5 py-0.5 rounded">HD</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">ขอบฟ้ามืด</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">แอ็คชัน, ระทึกขวัญ</p>
+</div>
+<!-- Poster 2 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Abstract colorful shapes poster" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf2ilNYR_AJ_caxSQ-bx9QcLTLIgpTJStunPzbsykfLCXtQljTgdnCLjtW9A1BOCL9eUYvOr_ZU_uMRZiPbgEchygZ44K2AogupQDs3CLzPvdraSjbaGUTG0fnLa8U2JvFOWichVxiiADU8KC07qM9xTwZt_sAADIWEv1xZI5hM2eDbySzosup2ol6CzzsB8VXVkhGVlg7WLSxuPQmKev-iJT0wRlN1LNGtUZ7yBxR5Bk0bfymA7rzwtrPUl-nEtIHkPF03R3yhVQT"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">ทฤษฎีสี</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">สารคดี</p>
+</div>
+<!-- Poster 3 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Person standing in a futuristic tunnel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5IOPD-pzgPRVy13cqvzDzkPc7rImUNGpoqix0IQkVt4_b_TjXObFcPbsaYEA0qROIJNJHY-eVTITwQnxE7ycS3uXHfydPGjSDGKo1RzyApx3L2ZC-0vzGBQwHU3g0OAZlH0Q6FA45secP_ZHUfChmqjm0DSts4CYqRiMArQD351IUYBysrJbJjaY5nkBaYBO0G62jOqS51DNR36d4ajih4xSZIzh0Cf8kJvJz0NqK3u6iaS0kd-28Cy4ZHFeLhVOT5INf0UH6e8O3"/>
+<div class="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm">TOP 10</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">การข้ามผ่าน</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ไซไฟ</p>
+</div>
+<!-- Poster 4 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a campfire at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvVmjimgHqLdlD4WO_FVF2Ke8m3XoYE3me0RCsw1i6dPkmHaSxASuEiRwFUZo0f8w3u5RLmtarvPSLmbvOg1aA_-K1H56HB1yLj0AMSCtNwhtjfV8J7DX8G7GVyXoPMYtJHN1jx_xal2I7ZHve5g4JttLPmvk9_7p8T7inw0UIvW6h46dCPTjiIh-XE50DKuK32r8xLBVrCnYAuo9aW417FA4-VsOFsb7DywElGJPnB7W-IND0i77KIKPfAtLiphXRN5JsAs-OVBjU"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">เปลวไฟ</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ดราม่า</p>
+</div>
+<!-- Poster 5 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Futuristic cyberpunk city street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhFojxccberdc9fXe-Ta3HP8tk8uiKEiY2o68CeueiBPxpP8xC06SOJLJ4jecvD5pmJXKGj-CFsJ60Z0iGG2DagXiIZUM4qN3P3Avmnx8V9Z0ci6Gzk-7Bn7Z-hS1QBNYq5YW_0O6zwuCY9iwcsouSf6cdQbCCUqmtZ0BNhXQOfhcDdGlGDfgqtHFmzN0GXUFLlzyrqbTW_Q3Ys7cMwgw5-Gu6dQhGadlpiKweZXD2jZOfu93E56BerXsJb01dxhhdaBUM81rhb_2F"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">พัลส์นีออน</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ไซเบอร์พังค์</p>
+</div>
+<!-- Poster 6 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Two people laughing at a diner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYXIxKcq5w1TRAkDDWxff6orlRlk8j4PPt6xSJC5NO9KwRRH9k-6gljsgHPPHlFnr4MaRWKoOe7SrCrX_9BnHro0xmv82emUYvFIj8VKrn-ififDJhejOARHCUrLtqLnsYEfLURE_6mN5oG5jYN95RPw3GrY_jNhZ6tDWxzqAVMXsZIdNr7Y9duVXMt8tdoi0-JZ2gEGTvbYzZkm5obFtnYUR_CtB3MStyLQ91MHQXbpdmAYcARl6g1-fbJUxrq4cIiWWxwuAwTd-K"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+<span class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+<span class="material-icons text-2xl">play_arrow</span>
+</span>
+</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">เพื่อนรัก</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ตลก</p>
+</div>
+</div>
+</section>
+<!-- New Releases (Vertical Posters) -->
+<section>
+<div class="flex items-center justify-between mb-4 px-2">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">มาใหม่</h2>
+<a class="text-sm font-medium text-primary hover:text-blue-500 transition-colors" href="#">ดูทั้งหมด</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x snap-mandatory">
+<!-- Poster 1 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Minimalist abstract face art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_YrICUjF8LKaCer27Ym3JgIe46IPfR9DyNRQ576uk-rqA5S7AxcLDZNohS7cbl_M9tJlVCuWwXHxuRh2fIPlzT9fLUn3aUTfbQO_wCxaRQM7nOsWy4XU-TYpKl9tQzDejpDuWggE_f2EWrpE6-ytwTJK6e_wabaUygvWEdNh2rkFBq-FULoCBbq6XNJ3tAYYiPXZRxzlkJPn7GuZkhmuPzzPxfTCThGvi3YFPOCcj0Ejqlgx966yAQSrBHQnXIRG4RIe45Gy4sSjL"/>
+<div class="absolute top-2 left-2 bg-rose-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm">NEW</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">ความเงียบ</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">สยองขวัญ</p>
+</div>
+<!-- Poster 2 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Silhouette of person on a mountain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOZVHJ7L_YLwm4Wgn0aAZTdXVgCXnFHVKXzeAnNP4zm6ltYAjhMTbv6rqhddNnJr72cy7ueTZZV0Zn4pOx-PngJx94WwkB4R2clNKUAzV9NvPuFdsTPDcEMLvcBEk-Cs9v_Uu7IBgV49GWAiq20P7FDhSFEMKwg_HnCEo1byIXN4-JN1RN1gIii7leFXpoeHY2EE5zuOkt2xijq4kOvmvFIwB4UHEqVFc_R5gm7NtD6pZSDtGZVBSETSdwl1hwcF6DokJxyiyFmH5x"/>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">ยอดเขา</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ผจญภัย</p>
+</div>
+<!-- Poster 3 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Dark forest path with fog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfOhZ64qiSDlxtQwSz54RizdKuiSBFKzBNBhhrKoGcydCu4G_cUrJMoDYLhXxksVU09ba8iLIUQLvqWOzCVUiaDihVdhqT5bdPtfDeyupZKwpFErUKeaczE0GTAae83EhV68dJJ3hWLs9ciRdhOXFKuh7nZo5VgK4yglPKxNO9jcEYLfJPs_cwPhl8i3x-20yw3VFo2SZ22520qHZnmBixYIQHC89OreCRmDK2YkGiLVJW2q6gX6W7Dr0ycYG_3xQkQ_3Gp1kkz6W1"/>
+<div class="absolute top-2 left-2 bg-rose-500 text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm">NEW</div>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">ใต้พงหญ้า</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ระทึกขวัญ</p>
+</div>
+<!-- Poster 4 -->
+<div class="flex-none w-[160px] sm:w-[200px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-lg overflow-hidden mb-2 shadow-lg ring-1 ring-white/10 dark:ring-white/5 hover:ring-primary transition-all duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Vintage family photo style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDakUrtzX8o858pm7-AuHzP-OoRmjLzSsZ0TOv4v5PtoKP6pgSCE39_jHX53IQ683o_XmE6wdSKLbfpTDZEgIvCOF1ntwSd2SO_1d18IEzm6CcfQFLEaTkXnzLQchcIUaxFe6DlOCJX_jNyRr6yzGVLHlFL1spE7mGTS8yYzr2KTfWxbd3IpZPvfcqjsP0zh8Dves25kw8a0LpOy7bawDAZFQDN8yoTsPDAvWqG3PCrPOSXeOeaIYiTh2SpNLbiYpRFjJYEURLZ7vtF"/>
+</div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm truncate group-hover:text-primary transition-colors">1984 ย้อนอดีต</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">ประวัติศาสตร์</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800 pt-12 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+<div>
+<h3 class="text-slate-900 dark:text-white font-bold mb-4">บุ๊ค<span class="text-primary">บิ๊ก</span></h3>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">เกี่ยวกับเรา</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ร่วมงานกับเรา</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ข่าวสาร</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white font-semibold mb-4">เลือกดู</h3>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">มาใหม่</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ยอดนิยม</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">หมวดหมู่</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white font-semibold mb-4">ฝ่ายสนับสนุน</h3>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">ศูนย์ช่วยเหลือ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">เงื่อนไขการใช้งาน</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">นโยบายความเป็นส่วนตัว</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white font-semibold mb-4">ติดต่อ</h3>
+<div class="flex space-x-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">rss_feed</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">share</span></a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-400">
+<p>© 2023 บุ๊คบิ๊ก จำกัด สงวนลิขสิทธิ์</p>
+<p class="mt-2 md:mt-0">ทำสำหรับคนรักซีรีส์สั้น</p>
+</div>
+</div>
+</footer>
+</body></html>
