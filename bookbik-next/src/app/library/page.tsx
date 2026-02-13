@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 
 const SearchIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,10 +113,12 @@ export default function LibraryPage() {
       <div className={`group relative flex flex-row bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:bg-gray-50 dark:hover:bg-surface-dark-hover transition-all duration-300 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md h-32 md:h-40 ${isOld ? 'opacity-75 hover:opacity-100' : ''}`}>
         {/* Poster */}
         <div className={`relative w-24 md:w-32 flex-shrink-0 h-full ${isOld ? 'grayscale group-hover:grayscale-0 transition-all' : ''}`}>
-          <img 
+          <Image 
             alt={item.title} 
             className="w-full h-full object-cover" 
             src={item.poster}
+            fill
+            sizes="(max-width: 768px) 96px, 128px"
           />
           {/* Play Overlay */}
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 flex items-center justify-center transition-all duration-300">

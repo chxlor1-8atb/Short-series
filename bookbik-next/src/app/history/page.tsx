@@ -1,270 +1,144 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
+import { useState } from 'react';
 
 export default function History() {
+  const [activeTab, setActiveTab] = useState('topup');
+
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased transition-colors duration-300 flex flex-col">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 glass-panel border-b border-slate-200/10 dark:border-white/5 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-8">
-              <Link className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" href="/">
-                <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">บ</div>
-                <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">บุ๊ค<span className="text-primary">บิ๊ก</span></span>
-              </Link>
-              <div className="hidden md:block">
-                <div className="flex items-baseline space-x-6">
-                  <Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">หน้าแรก</Link>
-                  <a href="/explore" className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">สำรวจ</a>
-                  <a href="/library" className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">คลังของฉัน</a>
-                  <a href="/missions" className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">ภารกิจ</a>
-                </div>
+    <div className="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 min-h-screen flex justify-center">
+      {/* Mobile-constrained Container */}
+      <div className="w-full max-w-lg bg-background-light dark:bg-background-dark min-h-screen shadow-2xl relative flex flex-col">
+        {/* Sticky Header */}
+        <header className="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 flex items-center justify-between">
+          <button onClick={() => window.history.back()} className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-surface-dark transition-colors group">
+            <span className="material-icons-round text-slate-600 dark:text-slate-400 group-hover:text-primary">arrow_back</span>
+          </button>
+          <h1 className="text-lg font-bold tracking-wide text-slate-900 dark:text-white">ประวัติการทำรายการ</h1>
+          <div className="w-10"></div>
+        </header>
+
+        {/* Main Content */}
+        <main className="flex-1 px-4 py-6">
+          {/* Toggle Switch */}
+          <div className="bg-slate-200 dark:bg-surface-dark p-1 rounded-xl flex mb-8">
+            <button
+              onClick={() => setActiveTab('topup')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all ${activeTab === 'topup' ? 'shadow-sm bg-primary text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+            >
+              เติมเหรียญ
+            </button>
+            <button
+              onClick={() => setActiveTab('unlock')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all ${activeTab === 'unlock' ? 'shadow-sm bg-primary text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+            >
+              ปลดล็อกซีรีส์
+            </button>
+          </div>
+
+          {/* Month Separator */}
+          <div className="mb-4 flex items-center">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">เดือนนี้</h3>
+            <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1 ml-4"></div>
+          </div>
+
+          {/* Transaction List */}
+          <div className="space-y-3">
+            {/* Item 1: Top Up */}
+            <div className="group bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-hover rounded-xl p-4 flex items-center transition-all cursor-pointer border border-transparent dark:border-slate-800/50 hover:border-slate-300 dark:hover:border-primary/30 shadow-sm">
+              <div className="h-12 w-12 rounded-full bg-yellow-100/10 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-200/20 dark:border-yellow-500/20">
+                <span className="material-icons-round text-yellow-600 dark:text-yellow-400 text-2xl">monetization_on</span>
+              </div>
+              <div className="ml-4 flex-1 min-w-0">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate group-hover:text-primary transition-colors">แพ็คเกจ 500 เหรียญ</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">24 ต.ค. 2023 • 14:30</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-sm font-bold text-primary">+ ฿175</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Visa •••• 4242</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <button className="relative p-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-              </button>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-300 to-slate-400"></div>
-                <div className="hidden sm:block">
-                  <div className="text-sm font-medium text-slate-900 dark:text-white">ผู้ใช้งาน</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">ระดับสมาชิก</div>
-                </div>
+
+            {/* Item 2: Bonus */}
+            <div className="group bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-hover rounded-xl p-4 flex items-center transition-all cursor-pointer border border-transparent dark:border-slate-800/50 hover:border-slate-300 dark:hover:border-primary/30 shadow-sm">
+              <div className="h-12 w-12 rounded-full bg-yellow-100/10 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-200/20 dark:border-yellow-500/20">
+                <span className="material-icons-round text-yellow-600 dark:text-yellow-400 text-2xl">stars</span>
+              </div>
+              <div className="ml-4 flex-1 min-w-0">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate group-hover:text-primary transition-colors">เหรียญโบนัส (เข้าสู่ระบบรายวัน)</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">24 ต.ค. 2023 • 08:00</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-sm font-bold text-primary">+ 20 เหรียญ</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">รางวัล</p>
+              </div>
+            </div>
+
+            {/* Item 3: Top Up */}
+            <div className="group bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-hover rounded-xl p-4 flex items-center transition-all cursor-pointer border border-transparent dark:border-slate-800/50 hover:border-slate-300 dark:hover:border-primary/30 shadow-sm">
+              <div className="h-12 w-12 rounded-full bg-yellow-100/10 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-200/20 dark:border-yellow-500/20">
+                <span className="material-icons-round text-yellow-600 dark:text-yellow-400 text-2xl">monetization_on</span>
+              </div>
+              <div className="ml-4 flex-1 min-w-0">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate group-hover:text-primary transition-colors">เติมเหรียญ 100</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">21 ต.ค. 2023 • 19:12</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-sm font-bold text-primary">+ ฿35</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Apple Pay</p>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {/* Header */}
-        <div className="bg-gradient-to-br from-primary/10 to-blue-50 dark:from-primary/5 dark:to-blue-900/20 py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">ประวัติการรับชม</h1>
-                <p className="text-slate-600 dark:text-slate-400">ซีรีส์ที่คุณได้รับชมไป</p>
-              </div>
-              <button className="bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-dark-hover text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg font-medium border border-slate-200 dark:border-slate-700 transition-colors">
-                ล้างประวัติ
-              </button>
-            </div>
+          {/* Month Separator */}
+          <div className="mt-8 mb-4 flex items-center">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">กันยายน 2023</h3>
+            <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1 ml-4"></div>
           </div>
-        </div>
 
-        {/* Filter Tabs */}
-        <div className="border-b border-slate-200 dark:border-slate-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex space-x-8">
-              <button className="py-4 px-1 border-b-2 border-primary text-primary font-medium text-sm">
-                ทั้งหมด (89)
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 font-medium text-sm">
-                วันนี้ (5)
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 font-medium text-sm">
-                7 วันล่าสุด (23)
-              </button>
-              <button className="py-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 font-medium text-sm">
-                30 วันล่าสุด (61)
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* History List */}
-        <div className="py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-6">
-              {/* Today */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">วันนี้</h3>
-                <div className="space-y-3">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="bg-white dark:bg-surface-dark rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-center gap-4">
-                        <div className="relative w-16 h-20 flex-shrink-0 rounded overflow-hidden">
-                          <Image 
-                            alt={`History ${item}`}
-                            className="w-full h-full object-cover"
-                            src={`https://picsum.photos/seed/hist${item}/200/300.jpg`}
-                            fill
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-medium text-slate-900 dark:text-white mb-1">ซีรีส์ประวัติ {item}</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">ตอนที่ {item * 2} • {item * 15} นาที</p>
-                          <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                            <span>ดูเมื่อ {item} ชั่วโมงที่แล้ว</span>
-                            <span>•</span>
-                            <span>เหลือ {item * 5} นาที</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button className="p-2 text-slate-400 hover:text-primary transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                          <button className="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          {/* Previous Month List */}
+          <div className="space-y-3 opacity-60">
+            {/* Series Unlocked Item 1 */}
+            <div className="group bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-hover rounded-xl p-3 flex items-center transition-all cursor-pointer border border-transparent dark:border-slate-800/50 hover:border-slate-300 dark:hover:border-primary/30 shadow-sm">
+              <div className="h-16 w-12 rounded-lg bg-slate-800 overflow-hidden shrink-0 relative shadow-md">
+                <Image alt="Movie poster with dark moody lighting" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCi6ulnromWOEiEeEFVEvN2OyHhGfvkCZczpTcKAHmLhVbaTuA04rvdJ_dQ-U1WcbwM59WPSRC0nG6qbPVYR6nNloB1DWDiTrDflUMdcsGmMpRU9RrQrB5IJOnVmDJbzYEWzYEJIyxcrddwhC3O_I4RXilpp3obQEZT7AVZha_10vSF8t9DVWVpqVU2REHlx3OARp9LJqYYcaCQQLp0RUy_JhCUOFzthEtgflU3h5oCyIVpdB6rFEMXAPUxESyMNccIO_YpwLPUNYX" fill sizes="48px" />
               </div>
-
-              {/* Yesterday */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">เมื่อวานนี้</h3>
-                <div className="space-y-3">
-                  {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="bg-white dark:bg-surface-dark rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-center gap-4">
-                        <div className="relative w-16 h-20 flex-shrink-0 rounded overflow-hidden">
-                          <Image 
-                            alt={`History Yesterday ${item}`}
-                            className="w-full h-full object-cover"
-                            src={`https://picsum.photos/seed/yest${item}/200/300.jpg`}
-                            fill
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-medium text-slate-900 dark:text-white mb-1">ซีรีส์เมื่อวาน {item}</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">ตอนที่ {item + 5} • {item * 12} นาที</p>
-                          <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                            <span>ดูเมื่อวานนี้</span>
-                            <span>•</span>
-                            <span>ดูหมดแล้ว</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button className="p-2 text-slate-400 hover:text-primary transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                          <button className="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="ml-4 flex-1 min-w-0">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate group-hover:text-primary transition-colors">ตอนที่ 5: รักในเมืองหลวง</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">28 ก.ย. 2023 • 22:45</p>
               </div>
-
-              {/* This Week */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">สัปดาห์นี้</h3>
-                <div className="space-y-3">
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <div key={item} className="bg-white dark:bg-surface-dark rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-center gap-4">
-                        <div className="relative w-16 h-20 flex-shrink-0 rounded overflow-hidden">
-                          <Image 
-                            alt={`History Week ${item}`}
-                            className="w-full h-full object-cover"
-                            src={`https://picsum.photos/seed/week${item}/200/300.jpg`}
-                            fill
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-medium text-slate-900 dark:text-white mb-1">ซีรีส์สัปดาห์ {item}</h4>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">ตอนที่ {item * 3} • {item * 10} นาที</p>
-                          <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                            <span>ดูเมื่อ {item + 2} วันที่แล้ว</span>
-                            <span>•</span>
-                            <span>ดู {item * 20}%</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button className="p-2 text-slate-400 hover:text-primary transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                          <button className="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="text-right shrink-0">
+                <p className="text-sm font-medium text-slate-500 dark:text-slate-400">- 30 เหรียญ</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">คงเหลือ: 420</p>
               </div>
             </div>
 
-            {/* Load More */}
-            <div className="mt-8 flex justify-center">
-              <button className="bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-dark-hover text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium border border-slate-200 dark:border-slate-700 transition-colors">
-                โหลดเพิ่มเติม
-              </button>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-lg">บ</div>
-                <span className="font-bold text-xl">บุ๊ค<span className="text-primary">บิ๊ก</span></span>
+            {/* Series Unlocked Item 2 */}
+            <div className="group bg-white dark:bg-surface-dark hover:bg-slate-50 dark:hover:bg-surface-hover rounded-xl p-3 flex items-center transition-all cursor-pointer border border-transparent dark:border-slate-800/50 hover:border-slate-300 dark:hover:border-primary/30 shadow-sm">
+              <div className="h-16 w-12 rounded-lg bg-slate-800 overflow-hidden shrink-0 relative shadow-md">
+                <Image alt="Abstract neon city lights poster" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1TA3Yphcu9RzNmEzOOEieJcsxROxRWD1ETAHy70HeYKqVny3M64R0UO8Y1rK-_cduw1e-ahGk3lIwhJxjGdV5RYOjAVz6W2bN8gEAZRe0BNqz9tpaklK89wisiCwDyzyLkoPD1Z_yqiR6PBnOUAbZOvqr7KmhZ9orQ3PGAGMfRzZktXWDboDBhlw9sZWxPZ6hvtP4OfiCsiAubnyQGScx6wn9eIeQyBx5SzUPEcM-0NaR9dL-fL-ea_yx0meha7wjBJxYSLFuAESP" fill sizes="48px" />
               </div>
-              <p className="text-slate-400 text-sm">แพลตฟอร์มซีรีส์สั้นอันดับ 1</p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">สำรวจ</h3>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">ซีรีส์ใหม่</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">ยอดนิยม</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">แนะนำ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">บริการ</h3>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">สมาชิก</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">เติมเงิน</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">คู่มือ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">ติดต่อ</h3>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Facebook</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
-              </ul>
+              <div className="ml-4 flex-1 min-w-0">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate group-hover:text-primary transition-colors">ตอนที่ 1: ความลับของ CEO</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">25 ก.ย. 2023 • 10:15</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-sm font-medium text-slate-500 dark:text-slate-400">- 15 เหรียญ</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">คงเหลือ: 450</p>
+              </div>
             </div>
           </div>
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
-            <p>&copy; 2024 บุ๊คบิ๊ก. สงวนลิขสิทธิ์</p>
+
+          {/* Load More */}
+          <div className="mt-8 text-center pb-8">
+            <button className="text-sm font-medium text-primary hover:text-primary-dark transition-colors flex items-center justify-center w-full py-4 border-t border-slate-200 dark:border-slate-800">
+              <span className="mr-2">โหลดรายการก่อนหน้า</span>
+              <span className="material-icons-round text-base">expand_more</span>
+            </button>
           </div>
-        </div>
-      </footer>
+        </main>
+      </div>
     </div>
   );
 }

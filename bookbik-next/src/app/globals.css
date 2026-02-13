@@ -3,15 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --font-display: var(--font-noto-sans-thai), var(--font-spline-sans), sans-serif;
   --color-primary: #2b8cee;
+  --color-primary-dark: #1a6cb8;
+  --color-primary-light: #60a5fa;
   --color-background-light: #f6f7f8;
   --color-background-dark: #101922;
-  --color-surface-dark: #16202a;
-  --color-surface-dark-hover: #1c2834;
+  --color-background-alt: #f3f4f6;
   --color-text-main: #1e293b;
   --color-text-muted: #64748b;
-  --color-background-alt: #f3f4f6;
+  --color-surface-dark: #16202a;
+  --color-surface-dark-hover: #1c2834;
+  --color-surface-hover: #253342;
+  --color-card-dark: #182430;
+  --color-card-hover: #1e2c3b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,24 +45,36 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .glass-panel {
   background: rgba(16, 25, 34, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
+.glow-effect {
+  box-shadow: 0 0 40px -10px rgba(43, 140, 238, 0.3);
+}
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+/* Custom scrollbar for dark pages */
+.dark ::-webkit-scrollbar {
   width: 8px;
 }
-::-webkit-scrollbar-track {
-  background: #101922; 
+.dark ::-webkit-scrollbar-track {
+  background: #101922;
 }
-::-webkit-scrollbar-thumb {
-  background: #2b8cee; 
+.dark ::-webkit-scrollbar-thumb {
+  background: #2b3b4f;
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #1a6cb8; 
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #374a60;
 }

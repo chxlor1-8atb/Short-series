@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function MissionsPage() {
@@ -38,10 +39,12 @@ export default function MissionsPage() {
                 <span className="text-sm font-bold">1,240</span>
               </div>
               <div className="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border-2 border-white dark:border-gray-800 shadow-sm cursor-pointer">
-                <img
+                <Image
                   alt="User Avatar"
                   className="h-full w-full object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2JTGpCqYZsh5l9cgFAHds9VqtXZSdrXJSfP3edYOqiMKm5gJL_ni5gBNtgGAraHrvFdbBCZOifun9hk70En4Rpa45-Cz1q7ebWkKX34Vt0o4Hk3Ta9Q0Ai8946IH0ISRZVHnm-T79EOxxImrZlOe8_ghR79cDMiqjNeoeaU1O3M0Tc6U0o2Gzvne3B04T6Y1nHD8h8ySosJAqCONeaZLszMh-v9dvuPiyPpYnpbfwEpbfX2QihEssaxENwxpkYX3_X3ljt3mwW_q"
+                  width={32}
+                  height={32}
                 />
               </div>
             </div>
@@ -282,10 +285,12 @@ export default function MissionsPage() {
 
             {/* Promo Banner */}
             <div className="mt-6 rounded-xl overflow-hidden relative h-40 group cursor-pointer">
-              <img
+              <Image
                 alt="Abstract futuristic neon background"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSWqOvQa_tQSMtCfQQet6vfkryo1-74knuMnLLwZYO2IJf8J4-hCPxBEK6jQ2_TKCKINFZc6XcjpzN0LBGwH0uaj4D1zP6WhiCR7WQp9XQXWMZby3_XSo39OruUGEL8jtVfdWwOMZh0wXxZiIpWMI4k8Ns61FozQSHik_VFtbZ-lBr8_xVKvqDv0nXxPyt4MZxJLOjxNdx75X2ZobcU7rFvf-btQ8HZRa9KgXgmtYwBzUvhsvJ29A6fN8U3g7B_R9tmxSULTlsN_b"
+                fill
+                sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
                 <h4 className="text-white font-bold text-lg leading-tight mb-1">ดูพรีเมียม</h4>
