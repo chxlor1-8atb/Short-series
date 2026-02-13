@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Explore() {
   return (
@@ -10,16 +11,16 @@ export default function Explore() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-8">
-              <a className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" href="/">
+              <Link className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" href="/">
                 <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">บ</div>
                 <span className="font-bold text-xl tracking-tight text-slate-800">บุ๊ค<span className="text-primary">บิ๊ก</span></span>
-              </a>
+              </Link>
               <div className="hidden md:block">
                 <div className="flex items-baseline space-x-6">
-                  <a href="/" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">หน้าแรก</a>
-                  <a href="/explore" className="bg-primary/10 text-primary px-3 py-2 text-sm font-medium rounded-lg">สำรวจ</a>
-                  <a href="/library" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">ห้องสมุด</a>
-                  <a href="/missions" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">ภารกิจ</a>
+                  <Link href="/" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">หน้าแรก</Link>
+                  <Link href="/explore" className="bg-primary/10 text-primary px-3 py-2 text-sm font-medium rounded-lg">สำรวจ</Link>
+                  <Link href="/library" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">ห้องสมุด</Link>
+                  <Link href="/missions" className="text-slate-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">ภารกิจ</Link>
                 </div>
               </div>
             </div>

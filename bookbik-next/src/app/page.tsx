@@ -13,15 +13,14 @@ export default function Home() {
             <div className="flex items-center gap-8">
               <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
                 <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-lg">B</div>
-                <span className="font-bold text-xl tracking-tight dark:text-white">Book<span className="text-primary">bik</span></span>
+                <span className="font-bold text-xl tracking-tight dark:text-white">บุ๊ค<span className="text-primary">บิ๊ก</span></span>
               </div>
               <div className="hidden md:block">
                 <div className="flex items-baseline space-x-6">
                   <a className="text-primary font-medium text-sm" href="#">หน้าแรก</a>
                   <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ยอดนิยม</a>
                   <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">ต้นฉบับ</a>
-                  <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="/missions">ภารกิจ</a>
-                  <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">รายการของฉัน</a>
+                  <a className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="/library">รายการของฉัน</a>
                 </div>
               </div>
             </div>
@@ -30,9 +29,7 @@ export default function Home() {
               {/* Search */}
               <div className="relative hidden sm:block group">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                  <span className="material-icons text-xl">search</span>
                 </span>
                 <input 
                   className="block w-full pl-10 pr-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-full leading-5 bg-white dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all duration-300 w-64" 
@@ -42,9 +39,7 @@ export default function Home() {
               </div>
               {/* Theme Toggle Placeholder (Visual Only) */}
               <button className="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
+                <span className="material-icons">dark_mode</span>
               </button>
               {/* Profile */}
               <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-2 ring-transparent hover:ring-primary transition-all cursor-pointer">
@@ -56,10 +51,8 @@ export default function Home() {
                   height={32}
                 />
               </div>
-              <a href="#" className="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-all flex-shrink-0">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <a href="/topup" className="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-all flex-shrink-0">
+                <span className="material-icons">monetization_on</span>
                 <span className="hidden sm:inline">เติมเหรียญ</span>
               </a>
             </div>
@@ -90,9 +83,7 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <span className="px-2 py-1 rounded bg-primary/20 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20 backdrop-blur-sm">ซีรีส์ใหม่</span>
                 <span className="text-slate-600 dark:text-slate-300 text-sm font-medium flex items-center gap-1">
-                  <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg> คะแนน 4.9
+                  <span className="material-icons text-primary text-base">star</span> คะแนน 4.9
                 </span>
               </div>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-none tracking-tight text-slate-900 dark:text-white drop-shadow-sm">
@@ -112,15 +103,11 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-4 pt-4">
                 <button className="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-8 py-3.5 rounded-lg font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/25">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                  </svg>
+                  <span className="material-icons">play_arrow</span>
                   ดูเลย
                 </button>
                 <button className="flex items-center gap-2 bg-white/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700 text-slate-900 dark:text-white backdrop-blur-md px-6 py-3.5 rounded-lg font-semibold transition-all border border-slate-200 dark:border-slate-600">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
+                  <span className="material-icons">add</span>
                   เพิ่มในรายการ
                 </button>
               </div>
@@ -136,14 +123,10 @@ export default function Home() {
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">ดูต่อ</h2>
               <div className="flex gap-2">
                 <button className="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <span className="material-icons">chevron_left</span>
                 </button>
                 <button className="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span className="material-icons">chevron_right</span>
                 </button>
               </div>
             </div>
@@ -159,9 +142,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                   {/* Progress Bar */}
@@ -186,9 +167,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                   {/* Progress Bar */}
@@ -213,9 +192,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                   {/* Progress Bar */}
@@ -240,9 +217,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                   {/* Progress Bar */}
@@ -277,9 +252,7 @@ export default function Home() {
                   <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-1.5 py-0.5 rounded">HD</div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>
@@ -298,9 +271,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>
@@ -320,9 +291,7 @@ export default function Home() {
                   <div className="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-1.5 py-0.5 rounded shadow-sm">TOP 10</div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>
@@ -341,9 +310,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>
@@ -362,9 +329,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>
@@ -383,9 +348,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <span className="bg-primary/90 text-white rounded-full p-3 shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                      <span className="material-icons text-2xl">play_arrow</span>
                     </span>
                   </div>
                 </div>

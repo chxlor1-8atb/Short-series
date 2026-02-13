@@ -1,7 +1,24 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Search, MoreVert, PlayArrow } from '@mui/icons-material'
+
+const SearchIcon = () => (
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+)
+
+const MoreVertIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+  </svg>
+)
+
+const PlayArrowIcon = () => (
+  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M8 5v14l11-7z"/>
+  </svg>
+)
 
 export default function LibraryPage() {
   const [activeTab, setActiveTab] = useState('watching')
@@ -103,7 +120,7 @@ export default function LibraryPage() {
           {/* Play Overlay */}
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 flex items-center justify-center transition-all duration-300">
             <div className="w-10 h-10 rounded-full bg-primary/90 text-white flex items-center justify-center transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 shadow-lg cursor-pointer">
-              <PlayArrow className="text-xl pl-1" />
+              <PlayArrowIcon />
             </div>
           </div>
         </div>
@@ -120,7 +137,7 @@ export default function LibraryPage() {
               </p>
             </div>
             <button className="p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-400 hover:text-primary transition-colors">
-              <MoreVert className="text-lg" />
+              <MoreVertIcon />
             </button>
           </div>
           
@@ -153,7 +170,7 @@ export default function LibraryPage() {
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
           <h1 className="text-xl font-bold tracking-tight">คลังของฉัน</h1>
           <button className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-surface-dark transition-colors group">
-            <Search className="text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors" />
+            <SearchIcon />
           </button>
         </div>
       </header>

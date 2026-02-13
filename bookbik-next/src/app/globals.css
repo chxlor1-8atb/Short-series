@@ -3,15 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-display: var(--font-noto-sans-thai), var(--font-spline-sans), sans-serif;
   --color-primary: #2b8cee;
   --color-background-light: #f6f7f8;
   --color-background-dark: #101922;
+  --color-surface-dark: #16202a;
+  --color-surface-dark-hover: #1c2834;
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  --color-background-alt: #f3f4f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,8 +35,24 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .glass-panel {
   background: rgba(16, 25, 34, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101922; 
+}
+::-webkit-scrollbar-thumb {
+  background: #2b8cee; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a6cb8; 
 }

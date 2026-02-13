@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         pathname: '/aida-public/**',
       },
     ],
+    unoptimized: true,
   },
 };
 
